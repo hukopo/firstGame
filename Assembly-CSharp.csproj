@@ -60,6 +60,7 @@
   <ItemGroup>
      <Compile Include="Assets\blockMagnite.cs" />
      <Compile Include="Assets\camera.cs" />
+     <Compile Include="Assets\install.cs" />
      <Compile Include="Assets\player.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Projects/unity/first/New Unity Project/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
