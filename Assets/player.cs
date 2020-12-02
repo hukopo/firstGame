@@ -41,19 +41,17 @@ public class player : MonoBehaviour
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
 
-        var moveVertical = Input.GetAxis("Vertical");
-
         if (isGrounded)
         {
             extraJump = maxExtraJump;
         }
 
-        if (moveVertical > 0 && extraJump > 0)
+        if (Input.GetKeyDown(KeyCode.Space) && extraJump > 0)
         {
             rb2d.velocity = Vector2.up * jumpForce;
             extraJump--;
         }
-        else if (moveVertical > 0 && extraJump == 0 && isGrounded)
+        else if (Input.GetKeyDown(KeyCode.Space) && extraJump == 0 && isGrounded)
         {
             rb2d.velocity = Vector2.up * jumpForce;
         }
