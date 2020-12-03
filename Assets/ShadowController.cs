@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class ShadowController : player
 {
+    private const int TimeToStart = 100;
+    public player player;
+    private int playerMovePointer = 0;
     // Start is called before the first frame update
     void Start()
     {
-        
+        jumpForce = player.jumpForce;
+        maxExtraJump = player.maxExtraJump;
+        speed = player.speed;
     }
 
     // Update is called once per frame
@@ -17,17 +22,15 @@ public class ShadowController : player
     }
     void FixedUpdate()
     {
-        var moveHorizontal = Input.GetAxis("Horizontal");
-
-        var movement = new Vector2(moveHorizontal, 0);
-        rb2d.AddForce(movement * speed);
-
-
-        if ((!facingRight && moveHorizontal > 0) || (facingRight && moveHorizontal < 0))
+        if (GameState.playerMovementsX.Count < TimeToStart)
         {
-            Flip();
+            return;
         }
+        var moveHorizontal = GameState.playerMovementsX[playerMovePointer];
+        UpdateMoveX(moveHorizontal);
 
-        UpdateJumpState();
+        var hasJumped = GameState.playerJumps[playerMovePointer];
+        UpdateJumpState(hasJumped);
+        playerMovePointer++;
     }
 }

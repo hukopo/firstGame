@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public static class GameState
 
     {
-        public static bool isOver = false;
+    public static List<float> playerMovementsX = new List<float>();
+    public static List<bool> playerJumps = new List<bool>();
         
         public static void EndGame()
         {

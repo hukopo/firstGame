@@ -2121,8 +2121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f20c517af739c043a14e9c41e1eecbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
-  jumpForce: 5
+  speed: 0
+  jumpForce: 0
   rb2d: {fileID: 1538211959}
   facingRight: 1
   isGrounded: 0
@@ -2131,7 +2131,8 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
-  maxExtraJump: 2
+  maxExtraJump: 0
+  player: {fileID: 1301107904}
 --- !u!58 &1538211957
 CircleCollider2D:
   m_ObjectHideFlags: 0
