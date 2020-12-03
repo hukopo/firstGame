@@ -37,7 +37,7 @@ public class player : MonoBehaviour
         UpdateJumpState();
     }
 
-    private void UpdateJumpState()
+    protected void UpdateJumpState()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
 
@@ -57,7 +57,7 @@ public class player : MonoBehaviour
         }
     }
 
-    void Flip()
+    protected void Flip()
     {
         facingRight = !facingRight;
         var scaler = transform.localScale;
