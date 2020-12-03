@@ -73,4 +73,12 @@ public class player : MonoBehaviour
         scaler.x *= -1;
         transform.localScale = scaler;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Trap")
+        {
+            GameState.EndGame();
+        }
+    }
 }
