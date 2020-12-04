@@ -6,6 +6,7 @@
       <e p="Assets" t="Include">
         <e p="blockMagnite.cs" t="Include" />
         <e p="camera.cs" t="Include" />
+        <e p="Crow.cs" t="Include" />
         <e p="GameState.cs" t="Include" />
         <e p="install.cs" t="Include" />
         <e p="player.cs" t="Include" />
