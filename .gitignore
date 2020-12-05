@@ -75,3 +75,4 @@ crashlytics-build.properties
 !*.dll
 !*.obj
 /.idea/.idea.New Unity Project/.idea/workspace.xml
+/bin/

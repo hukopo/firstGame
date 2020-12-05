@@ -26,7 +26,11 @@ public class player : MonoBehaviour
 
     void Update()
     {
-        jumpKeyPressed = Input.GetKeyDown(KeyCode.Space);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            jumpKeyPressed = true;
+        }
+
         moveHorizontal = Input.GetAxis("Horizontal");
     }
 
@@ -36,6 +40,10 @@ public class player : MonoBehaviour
         UpdateMoveX(moveHorizontal);
         GameState.playerJumps.Add(jumpKeyPressed);
         UpdateJumpState(jumpKeyPressed);
+        if (jumpKeyPressed)
+        {
+            jumpKeyPressed = false;
+        }
     }
 
     protected void UpdateMoveX(float moveHorizontal)
@@ -73,7 +81,7 @@ public class player : MonoBehaviour
         scaler.x *= -1;
         transform.localScale = scaler;
     }
-    
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Trap")
@@ -81,11 +89,11 @@ public class player : MonoBehaviour
             GameState.EndGame();
             return;
         }
+
         if (collision.gameObject.tag == "LevelFinish")
         {
             GameState.LoadNextLevel();
             return;
         }
-        
     }
 }
