@@ -14,6 +14,8 @@ public class player : MonoBehaviour
     public LayerMask whatIsGround;
     public int maxExtraJump;
     private int extraJump;
+    private bool jumpKeyPressed;
+    private float moveHorizontal;
 
     private void Start()
     {
@@ -24,8 +26,12 @@ public class player : MonoBehaviour
 
     void Update()
     {
-        var jumpKeyPressed = Input.GetKeyDown(KeyCode.Space);
-        var moveHorizontal = Input.GetAxis("Horizontal");
+        jumpKeyPressed = Input.GetKeyDown(KeyCode.Space);
+        moveHorizontal = Input.GetAxis("Horizontal");
+    }
+
+    private void FixedUpdate()
+    {
         GameState.playerMovementsX.Add(moveHorizontal);
         UpdateMoveX(moveHorizontal);
         GameState.playerJumps.Add(jumpKeyPressed);

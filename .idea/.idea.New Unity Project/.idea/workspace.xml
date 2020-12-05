@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d5e9d3d4-b180-44be-bda1-a2cc22f44e87" name="Default Changelist" comment="git files">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.New Unity Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.New Unity Project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Crow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Crow.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ShadowController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShadowController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/player.cs" afterDir="false" />
@@ -92,7 +91,7 @@
       <workItem from="1606843228027" duration="3491000" />
       <workItem from="1606928952166" duration="5119000" />
       <workItem from="1607094967937" duration="907000" />
-      <workItem from="1607167197484" duration="6357000" />
+      <workItem from="1607167197484" duration="7728000" />
     </task>
     <task id="LOCAL-00001" summary="git files">
       <created>1606929343215</created>
