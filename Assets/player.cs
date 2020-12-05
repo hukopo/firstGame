@@ -80,6 +80,13 @@ public class player : MonoBehaviour
         if (collision.gameObject.tag == "Trap")
         {
             GameState.EndGame();
+            return;
         }
-    }*/
+        if (collision.gameObject.tag == "LevelFinish")
+        {
+            GameState.LoadNextLevel();
+            return;
+        }
+        
+    }
 }

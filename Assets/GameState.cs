@@ -1,6 +1,5 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public static class GameState
@@ -8,15 +7,35 @@ public static class GameState
     {
     public static List<float> playerMovementsX = new List<float>();
     public static List<bool> playerJumps = new List<bool>();
-        
-        public static void EndGame()
+    public static List<string> Levels = new List<string>()
+    {
+        "SampleScene", "Win"
+    };
+    public static int CurrentLevel = 0;
+
+    internal static void LoadFirstLevel()
+    {
+        CurrentLevel = 0;
+        LoadCurrentLevel();
+    }
+
+    public static void EndGame()
         {
-            Debug.Log("Fuck u");
             SceneManager.LoadScene("Death1");
         }
 
     public static void Restart() 
     {
-        SceneManager.LoadScene("SampleScene");
+        LoadCurrentLevel();
+    }
+
+    internal static void LoadNextLevel()
+    {
+        CurrentLevel++;
+        LoadCurrentLevel();
+    }
+    private static void LoadCurrentLevel()
+    {
+        SceneManager.LoadScene(Levels[CurrentLevel]);
     }
 }
