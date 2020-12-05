@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class player : MonoBehaviour
 {
-    
     public float speed;
     public float jumpForce;
 
@@ -27,15 +26,19 @@ public class player : MonoBehaviour
         var moveHorizontal = Input.GetAxis("Horizontal");
         GameState.playerMovementsX.Add(moveHorizontal);
         UpdateMoveX(moveHorizontal);
-        
+
         var jumpKeyPressed = Input.GetKeyDown(KeyCode.Space);
         GameState.playerJumps.Add(jumpKeyPressed);
         UpdateJumpState(jumpKeyPressed);
     }
+
     protected void UpdateMoveX(float moveHorizontal)
     {
-        var movement = new Vector2(moveHorizontal, 0);
-        rb2d.AddForce(movement * speed);
+//        rb2d.velocity.Set(moveHorizontal * speed, rb2d.velocity.y);
+        if (Math.Abs(moveHorizontal) > 0)
+        {
+            rb2d.velocity = new Vector2((speed * moveHorizontal), rb2d.velocity.y);
+        }
 
         if ((!facingRight && moveHorizontal > 0) || (facingRight && moveHorizontal < 0))
         {
@@ -51,15 +54,11 @@ public class player : MonoBehaviour
         {
             extraJump = maxExtraJump;
         }
-        
+
         if (jumpKeyPressed && extraJump > 0)
         {
-            rb2d.velocity = Vector2.up * jumpForce;
+            rb2d.velocity = new Vector2(rb2d.velocity.x,jumpForce);
             extraJump--;
-        }
-        else if (jumpKeyPressed && extraJump == 0 && isGrounded)
-        {
-            rb2d.velocity = Vector2.up * jumpForce;
         }
     }
 
