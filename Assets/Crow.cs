@@ -2,7 +2,7 @@
 
 public class Crow : MonoBehaviour
 {
-    public GameObject player;
+    public player player;
     public Rigidbody2D rb2d;
     public float speed;
     private bool facingRight = true;
@@ -11,8 +11,8 @@ public class Crow : MonoBehaviour
     {
         rb2d.AddForce(player.transform.position - transform.position * speed);
 
-        if (player.transform.position.x - transform.position.x > 0 && facingRight ||
-            player.transform.position.x - transform.position.x < 0 && !facingRight)
+        if (player.rb2d.position.x - transform.position.x > 0 && facingRight ||
+            player.rb2d.position.x - transform.position.x < 0 && !facingRight)
         {
             Flip();
         }

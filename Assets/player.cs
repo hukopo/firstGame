@@ -18,6 +18,8 @@ public class player : MonoBehaviour
     private void Start()
     {
         extraJump = maxExtraJump;
+        GameState.playerMovementsX.Clear();
+        GameState.playerJumps.Clear();
     }
 
     void Update()
