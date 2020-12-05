@@ -13,7 +13,6 @@ public class player : MonoBehaviour
     public float checkRadius;
     public LayerMask whatIsGround;
     public int maxExtraJump;
-
     private int extraJump;
 
     private void Start()
@@ -21,20 +20,18 @@ public class player : MonoBehaviour
         extraJump = maxExtraJump;
     }
 
-    void FixedUpdate()
+    void Update()
     {
+        var jumpKeyPressed = Input.GetKeyDown(KeyCode.Space);
         var moveHorizontal = Input.GetAxis("Horizontal");
         GameState.playerMovementsX.Add(moveHorizontal);
         UpdateMoveX(moveHorizontal);
-
-        var jumpKeyPressed = Input.GetKeyDown(KeyCode.Space);
         GameState.playerJumps.Add(jumpKeyPressed);
         UpdateJumpState(jumpKeyPressed);
     }
 
     protected void UpdateMoveX(float moveHorizontal)
     {
-//        rb2d.velocity.Set(moveHorizontal * speed, rb2d.velocity.y);
         if (Math.Abs(moveHorizontal) > 0)
         {
             rb2d.velocity = new Vector2((speed * moveHorizontal), rb2d.velocity.y);
@@ -49,15 +46,14 @@ public class player : MonoBehaviour
     protected void UpdateJumpState(bool jumpKeyPressed)
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
-
-        if (isGrounded)
+        if (isGrounded && rb2d.velocity.y <= 0)
         {
             extraJump = maxExtraJump;
         }
 
         if (jumpKeyPressed && extraJump > 0)
         {
-            rb2d.velocity = new Vector2(rb2d.velocity.x,jumpForce);
+            rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
             extraJump--;
         }
     }
