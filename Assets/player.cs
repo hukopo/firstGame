@@ -45,8 +45,6 @@ public class player : MonoBehaviour
 
     protected void UpdateJumpState(bool jumpKeyPressed)
     {
-        
-
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
 
         if (isGrounded)
@@ -66,15 +64,6 @@ public class player : MonoBehaviour
     }
 
     protected void Flip()
-    {
-        facingRight = !facingRight;
-        var scaler = transform.localScale;
-        scaler.x *= -1;
-        transform.localScale = scaler;
-    }
-
-
-    void Jump()
     {
         facingRight = !facingRight;
         var scaler = transform.localScale;
