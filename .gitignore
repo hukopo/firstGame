@@ -74,3 +74,4 @@ crashlytics-build.properties
 # Exceptions
 !*.dll
 !*.obj
+/.idea/.idea.New Unity Project/.idea/workspace.xml
