@@ -9,7 +9,7 @@ public static class GameState
     public static List<bool> playerJumps = new List<bool>();
     public static List<string> Levels = new List<string>()
     {
-        "SampleScene", "Win"
+        "SampleScene", "level9", "Win"
     };
     public static int CurrentLevel = 0;
 

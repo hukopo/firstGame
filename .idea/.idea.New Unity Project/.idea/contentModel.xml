@@ -9,6 +9,7 @@
         <e p="Crow.cs" t="Include" />
         <e p="GameState.cs" t="Include" />
         <e p="install.cs" t="Include" />
+        <e p="LevelFinish.cs" t="Include" />
         <e p="player.cs" t="Include" />
         <e p="Restart.cs" t="Include" />
         <e p="ShadowController.cs" t="Include" />
