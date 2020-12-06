@@ -14,6 +14,7 @@ public class ShadowController : player
         jumpForce = player.jumpForce;
         maxExtraJump = player.maxExtraJump;
         speed = player.speed;
+        checkRadius = player.checkRadius;
     }
     
     private void FixedUpdate()
