@@ -4,13 +4,15 @@ using UnityEngine.SceneManagement;
 
 public static class GameState
 
-    {
+{
     public static List<float> playerMovementsX = new List<float>();
     public static List<bool> playerJumps = new List<bool>();
+
     public static List<string> Levels = new List<string>()
     {
         "SampleScene", "level9", "Win"
     };
+
     public static int CurrentLevel = 0;
 
     internal static void LoadFirstLevel()
@@ -20,11 +22,15 @@ public static class GameState
     }
 
     public static void EndGame()
-        {
-            SceneManager.LoadScene("Death1");
-        }
+    {
+#if DEBUG
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        return;
+#endif
+        SceneManager.LoadScene("Death1");
+    }
 
-    public static void Restart() 
+    public static void Restart()
     {
         LoadCurrentLevel();
     }
@@ -34,6 +40,7 @@ public static class GameState
         CurrentLevel++;
         LoadCurrentLevel();
     }
+
     private static void LoadCurrentLevel()
     {
         SceneManager.LoadScene(Levels[CurrentLevel]);
