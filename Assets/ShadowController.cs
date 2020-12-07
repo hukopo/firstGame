@@ -11,10 +11,12 @@ public class ShadowController : player
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
         jumpForce = player.jumpForce;
         maxExtraJump = player.maxExtraJump;
         speed = player.speed;
         checkRadius = player.checkRadius;
+        rb2d.gravityScale = player.rb2d.gravityScale;
     }
     
     private void FixedUpdate()
