@@ -36,6 +36,7 @@ public class player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        
         GameState.playerMovementsX.Add(moveHorizontal);
         UpdateMoveX(moveHorizontal);
         GameState.playerJumps.Add(jumpKeyPressed);
@@ -48,6 +49,11 @@ public class player : MonoBehaviour
 
     protected void UpdateMoveX(float moveHorizontal)
     {
+        if (Math.Abs(moveHorizontal) == 0)
+        {
+            rb2d.velocity = new Vector2(0, rb2d.velocity.y);
+        }
+
         if (Math.Abs(moveHorizontal) > 0)
         {
             rb2d.velocity = new Vector2((speed * moveHorizontal), rb2d.velocity.y);
