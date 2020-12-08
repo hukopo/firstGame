@@ -13,8 +13,17 @@ public class Restart : MonoBehaviour
 		var btn = gameObject.GetComponent<Button>();
 		btn.onClick.AddListener(TaskOnClick);
 	}
+    private void Update()
+    {
+		if (Input.GetKeyUp(KeyCode.R) ||
+			Input.GetKeyUp(KeyCode.Space) ||
+			Input.GetKeyUp(KeyCode.KeypadEnter))
+		{
+			TaskOnClick();
+		}
+	}
 
-	void TaskOnClick()
+    void TaskOnClick()
 	{
 		GameState.Restart();
 	}
