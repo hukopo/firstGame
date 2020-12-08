@@ -7,6 +7,7 @@ using UnityEngine.PlayerLoop;
 public class ShadowController : MonoBehaviour
 {
     public int TimeToStart = 50;
+    public float moveError = 0.01f;
     public player player;
     private int playerMovePointer = 0;
 
@@ -28,12 +29,12 @@ public class ShadowController : MonoBehaviour
 
     private Vector3 GetNextPosition()
     {
-        var delta = new Vector3();
+        float delta = 0;
         var position = new Vector3();
-        while (delta.x == 0)
+        while (delta <= moveError)
         {
             position = player.path[playerMovePointer];
-            delta = position - transform.position;
+            delta = Vector3.Distance(position, transform.position);
             playerMovePointer++;
         }
 
