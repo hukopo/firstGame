@@ -8,6 +8,7 @@ public class player : MonoBehaviour
     public float jumpForce;
 
     public Rigidbody2D rb2d;
+    public Animator animator;
     public bool facingRight = true;
     public bool isGrounded;
     public Transform groundCheck;
@@ -53,12 +54,14 @@ public class player : MonoBehaviour
     {
         if (Math.Abs(moveHorizontal) == 0)
         {
+            animator.SetBool("isRun", false);
             rb2d.velocity = new Vector2(0, rb2d.velocity.y);
         }
 
         if (Math.Abs(moveHorizontal) > 0)
         {
             rb2d.velocity = new Vector2((speed * moveHorizontal), rb2d.velocity.y);
+            animator.SetBool("isRun", true);
         }
 
         if ((!facingRight && moveHorizontal > 0) || (facingRight && moveHorizontal < 0))
