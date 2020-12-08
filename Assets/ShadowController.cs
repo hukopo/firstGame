@@ -1,37 +1,48 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
-public class ShadowController : player
+public class ShadowController : MonoBehaviour
 {
-    private const int TimeToStart = 100;
+    public int TimeToStart = 50;
     public player player;
     private int playerMovePointer = 0;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
-        jumpForce = player.jumpForce;
-        maxExtraJump = player.maxExtraJump;
-        speed = player.speed;
-        checkRadius = player.checkRadius;
-        rb2d.gravityScale = player.rb2d.gravityScale;
     }
     
     private void FixedUpdate()
     {
-        if (GameState.playerMovementsX.Count < TimeToStart)
+        if (player.path.Count < TimeToStart)
         {
             return;
         }
+        Vector3 position = GetNextPosition();
 
-        var moveHorizontal = GameState.playerMovementsX[playerMovePointer];
-        UpdateMoveX(moveHorizontal);
+        UpdateMoveState(position);
+    }
 
-        var hasJumped = GameState.playerJumps[playerMovePointer];
-        UpdateJumpState(hasJumped);
-        playerMovePointer++;
+    private Vector3 GetNextPosition()
+    {
+        var delta = new Vector3();
+        var position = new Vector3();
+        while (delta.x == 0)
+        {
+            position = player.path[playerMovePointer];
+            delta = position - transform.position;
+            playerMovePointer++;
+        }
+
+        return position;
+    }
+
+    private void UpdateMoveState(Vector3 position)
+    {
+        transform.position = position;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

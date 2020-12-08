@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class player : MonoBehaviour
@@ -16,6 +17,8 @@ public class player : MonoBehaviour
     private int extraJump;
     private bool jumpKeyPressed;
     private float moveHorizontal;
+
+    public List<Vector3> path;
 
     private void Start()
     {
@@ -36,8 +39,7 @@ public class player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
-        GameState.playerMovementsX.Add(moveHorizontal);
+        path.Add(transform.position);
         UpdateMoveX(moveHorizontal);
         GameState.playerJumps.Add(jumpKeyPressed);
         UpdateJumpState(jumpKeyPressed);
