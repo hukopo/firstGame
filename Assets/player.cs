@@ -76,12 +76,14 @@ public class player : MonoBehaviour
         if (isGrounded && rb2d.velocity.y <= 0)
         {
             extraJump = maxExtraJump;
+            animator.SetBool("isJump", false);
         }
 
         if (jumpKeyPressed && extraJump > 0)
         {
             rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
             extraJump--;
+            animator.SetBool("isJump", true);
         }
     }
 
