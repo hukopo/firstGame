@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Crow : MonoBehaviour
 {
-    public player player;
+    private player player;
     public Rigidbody2D rb2d;
     public LayerMask whatIsGround;
     public float speed;
@@ -14,6 +14,7 @@ public class Crow : MonoBehaviour
     private void Start()
     {
         maxY = transform.position.y;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
     }
 
     void FixedUpdate()

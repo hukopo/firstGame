@@ -9,7 +9,7 @@ public static class GameState
 
     public static List<string> Levels = new List<string>()
     {
-        "First", "Second", "Third", "Win"
+        "First", "Third", "Second", "Win"
     };
 
     public static int CurrentLevel = 0;

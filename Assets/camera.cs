@@ -4,7 +4,7 @@ using System.Collections;
 public class camera : MonoBehaviour
 {
     public float damping = 1.5f;
-    public Vector2 offset = new Vector2(100f, 1f);
+    public Vector2 offset = new Vector2(2f, 1f);
     public bool faceLeft;
     private Transform player;
     private int lastX;
