@@ -5,8 +5,7 @@ using UnityEngine.SceneManagement;
 public static class GameState
 
 {
-    public static List<float> playerMovementsX = new List<float>();
-    public static List<bool> playerJumps = new List<bool>();
+    public static int TimeToStart = 70;
 
     public static List<string> Levels = new List<string>()
     {

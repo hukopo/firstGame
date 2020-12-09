@@ -6,7 +6,6 @@ using UnityEngine.PlayerLoop;
 
 public class ShadowController : MonoBehaviour
 {
-    public int TimeToStart = 50;
     public float moveError = 0.01f;
     public player player;
     private int playerMovePointer = 0;
@@ -18,7 +17,7 @@ public class ShadowController : MonoBehaviour
     
     private void FixedUpdate()
     {
-        if (player.path.Count < TimeToStart)
+        if (player.path.Count < GameState.TimeToStart)
         {
             return;
         }

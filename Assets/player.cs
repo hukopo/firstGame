@@ -24,12 +24,16 @@ public class player : MonoBehaviour
     private void Start()
     {
         extraJump = maxExtraJump;
-        GameState.playerMovementsX.Clear();
-        GameState.playerJumps.Clear();
     }
 
     void Update()
     {
+        if (path.Count < GameState.TimeToStart)
+        {
+            moveHorizontal = 0.1f*speed;
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             jumpKeyPressed = true;
@@ -42,7 +46,6 @@ public class player : MonoBehaviour
     {
         path.Add(transform.position);
         UpdateMoveX(moveHorizontal);
-        GameState.playerJumps.Add(jumpKeyPressed);
         UpdateJumpState(jumpKeyPressed);
         if (jumpKeyPressed)
         {
